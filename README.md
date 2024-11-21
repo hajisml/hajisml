@@ -54,3 +54,6 @@ func main() {
     </ul>
 <!--END_SECTION:Updates-->
 </details><br>
+
+<!-- Footer -->
+<h6 align="center">Mαrtiαηϟ VϞ Gobliηϟ</h6>
