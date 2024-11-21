@@ -45,3 +45,12 @@ func main() {
         <img src="https://streak-stats.demolab.com?user=hajisml&theme=transparent&hide_border=true&date_format=j%20M%5B%20Y%5D&mode=weekly&ring=F5F5F5&fire=F5F5F5&currStreakNum=F5F5F5EB&sideLabels=F5F5F5&currStreakLabel=F5F5F5&sideNums=F5F5F5&dates=424242" alt="GitHub Streak" />
     </a>
 </div><br>
+
+<!-- Updates -->
+<details>
+  <summary><b>🚀 Updates</b></summary><br>
+    <ul>
+        <li>🛠️ Working on <a href="https://github.com/martiandegree/martian-prompt">Martian-Prompt!</a></li>
+    </ul>
+<!--END_SECTION:Updates-->
+</details><br>
