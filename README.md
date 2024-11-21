@@ -20,3 +20,21 @@
 <!-- Donations-->
 <h6 align="center">₿ Bitcoin: 14Z5jHvw6Xu1Tvsn2b2XAJmwysEB5WJ5m5</h6>
 </div><br>
+
+<!-- Fav language snippet in Go-->
+```go
+func main() {
+	http.HandleFunc("/", func(writer http.ResponseWriter, request *http.Request) {
+		message := strings.Join([]string{"Hello", "world!"}, " ")
+
+		_, err := writer.Write([]byte(message))
+		if err != nil {
+			panic(err)
+		}
+	})
+
+	if err := http.ListenAndServe(":8080", nil); err != nil {
+		panic(err)
+	}
+}
+```
