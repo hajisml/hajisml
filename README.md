@@ -11,5 +11,10 @@
 </div>
 <div align="center" >
     <a href="https://linkedin.com/in/hajisml"><img alt="Static Badge" src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a>
-    <a href="https://t.me/hajisml"><img alt="Static Badge" src="https://img.shields.io/badge/hajisml-white?style=for-the-badge&logo=telegram&logoColor=blue"></a>
+    <a href="https://www.youtube.com/@hajsml"><img alt="Static Badge" src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white"></a>
+    <a href="https://www.twitch.tv/hajisml"><img alt="Static Badge" src="https://img.shields.io/badge/Twitch-6441A4?style=for-the-badge&logo=twitch&logoColor=white"></a>
+    <a href="https://medium.com/@hajisml"><img alt="Static Badge" src="https://img.shields.io/badge/Medium-000000?style=for-the-badge&logo=medium&logoColor=white"></a>
+    <a href="https://x.com/hajisml"><img alt="Static Badge" src="https://img.shields.io/badge/Twitter-000000?style=for-the-badge&logo=x&logoColor=white"></a>
+    <a href="https://t.me/hajisml"><img alt="Static Badge" src="https://img.shields.io/badge/Telegram-blue?style=for-the-badge&logo=telegram&logoColor=white"></a>
+
 </div><br>
