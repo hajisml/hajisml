@@ -17,4 +17,6 @@
     <a href="https://x.com/hajisml"><img alt="Static Badge" src="https://img.shields.io/badge/Twitter-000000?style=for-the-badge&logo=x&logoColor=white"></a>
     <a href="https://t.me/hajisml"><img alt="Static Badge" src="https://img.shields.io/badge/Telegram-blue?style=for-the-badge&logo=telegram&logoColor=white"></a>
 
+<!-- Donations-->
+<h6 align="center">₿ Bitcoin: 14Z5jHvw6Xu1Tvsn2b2XAJmwysEB5WJ5m5</h6>
 </div><br>
