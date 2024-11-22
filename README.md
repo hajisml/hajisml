@@ -56,4 +56,9 @@ func main() {
 </details><br>
 
 <!-- Footer -->
-<h6 align="center">Mαrtiαηϟ VϞ Gobliηϟ</h6>
+<div align="center">
+    <a href="https://hajiibrahim-readme-dev-48.deno.dev">
+        <img src="https://hajiibrahim-readme-dev-48.deno.dev?theme=dark&card_width=420&card_height=30&font-family=Fira+sans" alt="Dev Excuses" />
+    </a>
+<h6 align="center">- Mαrtiαηϟ VϞ Gobliηϟ -</h6>
+</div>
