@@ -51,6 +51,7 @@ func main() {
   <summary><b>🚀 Updates</b></summary><br>
     <ul>
         <li>🛠️ Working on <a href="https://github.com/martiandegree/martian-prompt">Martian-Prompt!</a></li>
+        <li><a href="https://wakatime.com/@00a59a24-7f70-4add-abf2-ff361b4693fc"><img src="https://wakatime.com/badge/user/00a59a24-7f70-4add-abf2-ff361b4693fc.svg" alt="Total time coded since Nov 25 2024" /></a></li>
     </ul>
 <!--END_SECTION:Updates-->
 </details><br>
