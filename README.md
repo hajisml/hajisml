@@ -5,9 +5,7 @@
 
 <!-- Typing svg presentation-->
 <div align="center">
-    <a href="https://git.io/typing-svg">
-        <img src="https://readme-typing-svg.demolab.com?font=Fira+Sans&size=22&duration=4000&pause=1000&color=F5F5F5&center=true&vCenter=true&random=false&width=410&lines=We+Δre+Ͷot+Ͳhe+Ϟαϻe,+I'ϻ+Δ+ϻαrtiαη;-+lil+Wαyηe+-" alt="Typing..." />
-    </a>
+    <a href="https://hajisml.github.io"><img src="https://readme-typing-svg.demolab.com?font=Fira+Sans&size=22&duration=4000&pause=1000&color=F5F5F5F5&center=true&vCenter=true&width=410&lines=We+%CE%94re+%CD%B6ot+%CD%B2he+%CF%9E%CE%B1%CF%BBe%2C+I'%CF%BB+%CE%94+%CF%BB%CE%B1rti%CE%B1%CE%B7;-+lil+W%CE%B1y%CE%B7e" alt="Typing..." /></a>
 </div>
 <div align="center" >
     <a href="https://linkedin.com/in/hajisml"><img alt="Static Badge" src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a>
