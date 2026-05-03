@@ -1,6 +1,6 @@
 <!-- Personal profile banner-->
 <h1 align="center">
-    <img src=".github/hajisml_gh_banner2.png" alt="Profile banner"/>
+    <img src=".github/hajisml_banner.png" alt="Profile banner"/>
 </h1>
 
 <!-- Typing svg presentation-->
@@ -22,18 +22,18 @@
 <!-- Fav language snippet in Go-->
 ```go
 func main() {
-	http.HandleFunc("/", func(writer http.ResponseWriter, request *http.Request) {
-		message := strings.Join([]string{"Hello", "world!"}, " ")
+ http.HandleFunc("/", func(writer http.ResponseWriter, request *http.Request) {
+  message := strings.Join([]string{"Hello", "world!"}, " ")
 
-		_, err := writer.Write([]byte(message))
-		if err != nil {
-			panic(err)
-		}
-	})
+  _, err := writer.Write([]byte(message))
+  if err != nil {
+   panic(err)
+  }
+ })
 
-	if err := http.ListenAndServe(":8080", nil); err != nil {
-		panic(err)
-	}
+ if err := http.ListenAndServe(":8080", nil); err != nil {
+  panic(err)
+ }
 }
 ```
 
@@ -49,7 +49,7 @@ func main() {
   <summary><b>🚀 Updates</b></summary><br>
     <ul>
         <li>🛠️ Working on <a href="https://github.com/hajisml/kamugram">Kamugram!</a></li>
-		<li>🧑🏾‍💻 Apprentice at <a href="https://zone01kisumu.ke">Zone01 Kisumu</a></li>
+  <li>🧑🏾‍💻 Apprentice at <a href="https://zone01kisumu.ke">Zone01 Kisumu</a></li>
         <li><a href="https://wakatime.com/@00a59a24-7f70-4add-abf2-ff361b4693fc"><img src="https://wakatime.com/badge/user/00a59a24-7f70-4add-abf2-ff361b4693fc.svg" alt="Total time coded since Nov 25 2024" /></a></li>
     </ul>
 <!--END_SECTION:Updates-->
