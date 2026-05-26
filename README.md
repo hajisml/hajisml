@@ -7,12 +7,14 @@
 <div align="center">
     <a href="https://hajisml.github.io"><img src="https://readme-typing-svg.demolab.com?font=Fira+Sans&size=22&duration=4000&pause=1000&color=F5F5F5F5&center=true&vCenter=true&width=410&lines=We+%CE%94re+%CD%B6ot+%CD%B2he+%CF%9E%CE%B1%CF%BBe%2C+I'%CF%BB+%CE%94+%CF%BB%CE%B1rti%CE%B1%CE%B7;-+lil+W%CE%B1y%CE%B7e" alt="Typing..." /></a>
 </div>
+<!-- Socials-->
 <div align="center" >
-    <a href="https://linkedin.com/in/hajisml"><img alt="Static Badge" src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a>
+    <a href="https://dev.to/hajisml"><img alt="Static Badge" src="https://img.shields.io/badge/DEV-000000?style=for-the-badge&logo=dev.to&logoColor=white"></a>
+    <a href="https://linkedin.com/in/hajisml"><img alt="Static Badge" src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"></a>
     <a href="https://www.youtube.com/@hajsml"><img alt="Static Badge" src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white"></a>
     <a href="https://www.twitch.tv/hajisml"><img alt="Static Badge" src="https://img.shields.io/badge/Twitch-6441A4?style=for-the-badge&logo=twitch&logoColor=white"></a>
-    <a href="https://medium.com/@hajisml"><img alt="Static Badge" src="https://img.shields.io/badge/Medium-000000?style=for-the-badge&logo=medium&logoColor=white"></a>
     <a href="https://x.com/hajisml"><img alt="Static Badge" src="https://img.shields.io/badge/Twitter-000000?style=for-the-badge&logo=x&logoColor=white"></a>
+    <a href="https:/substack.com/@hajisml"><img alt="Static Badge" src="https://img.shields.io/badge/Substack-orange?style=for-the-badge&logo=substack&logoColor=white"></a>
     <a href="https://t.me/hajisml"><img alt="Static Badge" src="https://img.shields.io/badge/Telegram-blue?style=for-the-badge&logo=telegram&logoColor=white"></a>
 
 <!-- Donations-->
