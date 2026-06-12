@@ -18,7 +18,8 @@
     <a href="https://t.me/hajisml"><img alt="Static Badge" src="https://img.shields.io/badge/Telegram-blue?style=for-the-badge&logo=telegram&logoColor=white"></a>
 
 <!-- Donations-->
-<h6 align="center">₿ Bitcoin: 14Z5jHvw6Xu1Tvsn2b2XAJmwysEB5WJ5m5</h6>
+<h6 align="center">₿ Bitcoin: bc1q9vyjnvxjkk40mjqf6cgkadklfxrug5ez6kzpxx</h6>
+<h6 align="center">⚡Lighning: middleamber84@walletofsatoshi.com</h6>
 </div><br>
 
 <!-- Fav language snippet in Go-->
