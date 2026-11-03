@@ -64,6 +64,15 @@ jobs:
         with:
           path: assets/streak-dark.svg
           options: user=hajisml&mode=weekly&theme=github-dark&background=00000000&hide_border=true&disable_animations=true&date_format=j%20M%5B%20Y%5D&ring=79C0FF&fire=79C0FF&currStreakNum=F0F6FC&sideLabels=F0F6FC&currStreakLabel=79C0FF&sideNums=F0F6FC&dates=9198A1
+      - name: Normalize generated SVG whitespace
+        run: |
+          python3 -B - <<'PY'
+          from pathlib import Path
+          for theme in ("light", "dark"):
+              path = Path(f"assets/streak-{theme}.svg")
+              lines = path.read_text(encoding="utf-8").splitlines()
+              path.write_text("\n".join(line.rstrip() for line in lines).rstrip() + "\n", encoding="utf-8")
+          PY
       - name: Validate generated cards
         run: python3 -B -m unittest discover -s .github/scripts -p 'test_*.py' -v
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2

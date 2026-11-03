@@ -684,6 +684,8 @@ class RepositoryTests(unittest.TestCase):
         self.assertIn("persist-credentials: false", job)
         self.assertIn("github.event_name != 'pull_request'", job)
         self.assertEqual(job.count("DenverCoder1/github-readme-streak-stats@adbd07609bb771d3510a15ee2f3b31d5fbe5201d"), 2)
+        self.assertIn("Normalize generated SVG whitespace", job)
+        self.assertLess(job.index("Normalize generated SVG whitespace"), job.index("Validate generated cards"))
         self.assertIn("actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02", job)
         self.assertIn("actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093", workflow)
         self.assertIn("needs: [validate, generate-streaks]", workflow)
