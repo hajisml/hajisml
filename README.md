@@ -102,7 +102,7 @@ I'm **Haji Ismael Ibrahim**, a software engineer based in Lakecity. I build back
 
 <!--START_SECTION:dev-excuse-->
 <p align="center">
-    <em>“Wheη ϟomeoηe αϟked me αbout my blood group, I told him thαt I'm α code blooded perϟoη.”</em><br>
+    <em>“We αre ηot iη the ϟαme verϟioη, heηce there iϟ α coηflict.”</em><br>
     <sub>— <a href="https://excuser-three.vercel.app">Excuser</a></sub>
 </p>
 <!--END_SECTION:dev-excuse-->
@@ -111,7 +111,18 @@ I'm **Haji Ismael Ibrahim**, a software engineer based in Lakecity. I build back
   <summary><b>⏳ View my WakaTime Statistics</b></summary>
 
 <!--START_SECTION:waka-->
-Language statistics will appear here after WakaTime is connected. Only language totals and coding time are published.
+**📊 This Week I Spent My Time On**
+
+```text
+Programming Languages:
+Other                    1 hr 9 mins       ███████████░░░░░░░░░  56.90 %
+Java                     36 mins           ██████░░░░░░░░░░░░░░  29.66 %
+Markdown                 10 mins           ██░░░░░░░░░░░░░░░░░░   8.56 %
+PHP                      3 mins            █░░░░░░░░░░░░░░░░░░░   2.59 %
+Bash                     2 mins            ░░░░░░░░░░░░░░░░░░░░   2.29 %
+```
+
+Last 7 days · Updated 2026-11-03 UTC · Source: [WakaTime](https://wakatime.com/@00a59a24-7f70-4add-abf2-ff361b4693fc)
 <!--END_SECTION:waka-->
 
 </details><br>
