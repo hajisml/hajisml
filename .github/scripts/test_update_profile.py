@@ -527,7 +527,7 @@ class RepositoryTests(unittest.TestCase):
                     self.assertTrue((profile.ROOT / parsed.path).is_file())
 
     def test_dynamic_images_have_exactly_one_variant_per_theme(self):
-        for host in ["readme-typing-svg.demolab.com", "streak-stats.demolab.com"]:
+        for host in ["readme-typing-svg.demolab.com"]:
             images = [urlsplit(image["src"]) for image in self.images if urlsplit(image["src"]).netloc == host]
             self.assertEqual(len(images), 2)
             self.assertEqual({image.fragment for image in images}, {"gh-light-mode-only", "gh-dark-mode-only"})
@@ -547,7 +547,7 @@ class RepositoryTests(unittest.TestCase):
         self.assertLess(after.index("<!-- Footer -->"), after.index("- Mαrtiαηϟ VϞ Gobliηϟ -"))
 
     def test_quote_is_immediately_below_streak_and_above_wakatime(self):
-        streak = self.readme.rindex("streak-stats.demolab.com?")
+        streak = self.readme.rindex('src="assets/streak-')
         streak_end = self.readme.index("</div><br>", streak) + len("</div><br>")
         quote_start = self.readme.index(profile.EXCUSE_START)
         quote_end = self.readme.index(profile.EXCUSE_END)
@@ -565,12 +565,12 @@ class RepositoryTests(unittest.TestCase):
         profile.replace_excuse(self.readme, "test")
 
     def test_weekly_streak_and_typing_content_are_preserved(self):
+        workflow = (profile.ROOT / ".github/workflows/profile-stats.yml").read_text(encoding="utf-8")
+        self.assertEqual(workflow.count("user=hajisml&mode=weekly&"), 2)
+        self.assertEqual(workflow.count("date_format=j%20M%5B%20Y%5D"), 2)
         for image in self.images:
             parsed = urlsplit(image["src"])
             query = parse_qs(parsed.query)
-            if parsed.netloc == "streak-stats.demolab.com":
-                self.assertEqual(query["mode"], ["weekly"])
-                self.assertEqual(query["user"], ["hajisml"])
             if parsed.netloc == "readme-typing-svg.demolab.com":
                 self.assertEqual(query["font"], ["Fira Sans"])
                 self.assertEqual(query["width"], ["410"])
@@ -580,9 +580,7 @@ class RepositoryTests(unittest.TestCase):
         for image in self.images:
             parsed = urlsplit(image["src"])
             fields = []
-            if parsed.netloc == "streak-stats.demolab.com":
-                fields = ["currStreakNum", "sideLabels", "currStreakLabel", "sideNums", "dates"]
-            elif parsed.netloc == "readme-typing-svg.demolab.com":
+            if parsed.netloc == "readme-typing-svg.demolab.com":
                 fields = ["color"]
             if not fields:
                 continue
@@ -591,6 +589,30 @@ class RepositoryTests(unittest.TestCase):
             for field in fields:
                 with self.subTest(host=parsed.netloc, theme=theme, field=field):
                     self.assertGreaterEqual(contrast("#" + query[field][0], profile.THEMES[theme]["bg"]), 4.5)
+        for theme in profile.THEMES:
+            root = ET.parse(profile.ROOT / "assets" / f"streak-{theme}.svg").getroot()
+            texts = root.findall(".//{http://www.w3.org/2000/svg}text")
+            self.assertTrue(texts)
+            for text in texts:
+                color = text.attrib.get("fill")
+                if color and color.startswith("#"):
+                    with self.subTest(theme=theme, text=text.text):
+                        self.assertGreaterEqual(contrast(color, profile.THEMES[theme]["bg"]), 4.5)
+
+    def test_streaks_are_repository_hosted_and_valid_svg(self):
+        images = [urlsplit(image["src"]) for image in self.images if image["src"].startswith("assets/streak-")]
+        self.assertEqual(len(images), 2)
+        self.assertEqual({image.fragment for image in images}, {"gh-light-mode-only", "gh-dark-mode-only"})
+        self.assertNotIn("streak-stats.demolab.com?", self.readme)
+        for theme in profile.THEMES:
+            content = (profile.ROOT / "assets" / f"streak-{theme}.svg").read_text(encoding="utf-8")
+            root = ET.fromstring(content)
+            self.assertTrue(root.tag.endswith("svg"))
+            self.assertNotIn("<script", content)
+            self.assertNotIn("<foreignObject", content)
+            self.assertNotIn("href=", content)
+            labels = " ".join(root.itertext())
+            self.assertTrue("Week Streak" in labels or "Awaiting first refresh" in labels)
 
     def test_existing_content_and_user_preferences_are_retained(self):
         for content in ["bc1q9vyjnvxjkk40mjqf6cgkadklfxrug5ez6kzpxx", "middleamber84@walletofsatoshi.com",
@@ -652,6 +674,19 @@ class RepositoryTests(unittest.TestCase):
         self.assertNotIn("git add -A", workflow)
         self.assertIn("actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683", workflow)
         self.assertNotIn("dev-excuse-", workflow)
+
+    def test_streak_renderer_is_pinned_and_isolated_from_write_access_and_wakatime(self):
+        workflow = (profile.ROOT / ".github/workflows/profile-stats.yml").read_text(encoding="utf-8")
+        job = workflow.split("  generate-streaks:\n")[1].split("  update:\n")[0]
+        self.assertIn("contents: read", job)
+        self.assertNotIn("contents: write", job)
+        self.assertNotIn("WAKATIME_TOKEN", job)
+        self.assertIn("persist-credentials: false", job)
+        self.assertIn("github.event_name != 'pull_request'", job)
+        self.assertEqual(job.count("DenverCoder1/github-readme-streak-stats@adbd07609bb771d3510a15ee2f3b31d5fbe5201d"), 2)
+        self.assertIn("actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02", job)
+        self.assertIn("actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093", workflow)
+        self.assertIn("needs: [validate, generate-streaks]", workflow)
 
 
 if __name__ == "__main__":

@@ -95,8 +95,8 @@ I'm **Haji Ismael Ibrahim**, a software engineer based in Lakecity. I build back
 
 <div align="center">
     <a href="https://git.io/streak-stats">
-        <img src="https://streak-stats.demolab.com?user=hajisml&theme=github-light&background=00000000&hide_border=true&date_format=j%20M%5B%20Y%5D&mode=weekly&ring=0969DA&fire=0969DA&currStreakNum=1F2328&sideLabels=1F2328&currStreakLabel=0969DA&sideNums=1F2328&dates=59636E#gh-light-mode-only" alt="Weekly GitHub contribution streak" />
-        <img src="https://streak-stats.demolab.com?user=hajisml&theme=github-dark&background=00000000&hide_border=true&date_format=j%20M%5B%20Y%5D&mode=weekly&ring=79C0FF&fire=79C0FF&currStreakNum=F0F6FC&sideLabels=F0F6FC&currStreakLabel=79C0FF&sideNums=F0F6FC&dates=9198A1#gh-dark-mode-only" alt="Weekly GitHub contribution streak" />
+        <img src="assets/streak-light.svg#gh-light-mode-only" alt="Weekly GitHub contribution streak" />
+        <img src="assets/streak-dark.svg#gh-dark-mode-only" alt="Weekly GitHub contribution streak" />
     </a>
 </div><br>
 

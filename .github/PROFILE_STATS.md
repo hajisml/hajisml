@@ -2,8 +2,9 @@
 
 The profile keeps its existing content and adds theme-aware cards, a collapsible
 WakaTime language breakdown, and a cached Dev Excuses quote. All generation uses Python
-3.10+ and its standard library; there are no packages to install or third-party
-stats actions to run.
+3.10+ and its standard library for overview/language cards and quote updates.
+Weekly streaks use the upstream project's pinned action in GitHub's runner; no
+local package installation is required.
 
 ## Theme handling
 
@@ -16,6 +17,27 @@ GitHub's theme fragments.
 The typing quote, its animation settings, and the weekly streak mode are
 preserved. Text, dates, numbers, and accents have explicit colors for each theme.
 Generated cards have matching light/dark backgrounds and accessible SVG titles.
+
+## Weekly streaks
+
+The README uses repository-hosted `assets/streak-light.svg` and
+`assets/streak-dark.svg`, not the public streak endpoint. During shipping, both
+the public service and GitHub's image proxy timed out, so relying on that service
+at profile-view time was removed.
+
+The pinned `DenverCoder1/github-readme-streak-stats` action renders both variants
+from GitHub contribution calendars in a separate **read-only job**. It uses the
+short-lived repository `GITHUB_TOKEN`, with no private-repository PAT and no
+WakaTime secret. The job installs PHP and the renderer's Composer dependencies
+only on the ephemeral GitHub runner, not on your machine. It uploads only the
+two SVGs; the publishing job downloads and validates them before committing.
+
+Weekly Sun–Sat mode, date format, and explicit light/dark text colors are
+preserved. Animations are disabled for predictable static rendering. Cards
+refresh with the workflow, normally daily after merging to `main`. If generation
+fails, the publishing job does not run and the previous cards remain unchanged.
+The initial files are honest pending-refresh placeholders, replaced by real
+cards after the first successful generation; no streak counts are fabricated.
 
 ## GitHub overview and languages
 
@@ -122,12 +144,13 @@ Your original signature remains in the footer at the bottom of the profile.
   identity and will be organized separately when you request shipping.
 - Commits made with the workflow's `GITHUB_TOKEN` do not trigger another `push`
   workflow, preventing update loops. Writes are serialized per branch.
-- Only `README.md` and the four named GitHub SVGs are staged. No force-push, branch
+- Only `README.md` and the six named GitHub SVGs are staged. No force-push, branch
   creation, merge, release, or deployment is performed. If branch protection
   rejects an automated push, the workflow fails without bypassing it.
 - Missing WakaTime credentials leave that section unchanged. An upstream error
   preserves that service's previous output, publishes any successful independent
   refresh, and marks the run failed. Empty activity is distinct from an error.
+  A failure in the separate streak-generation job blocks publishing entirely.
 
 ## Local checks
 
