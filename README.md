@@ -102,7 +102,7 @@ I'm **Haji Ismael Ibrahim**, a software engineer based in Lakecity. I build back
 
 <!--START_SECTION:dev-excuse-->
 <p align="center">
-    <em>“HR αϟked me why you αre lαte, I told her thαt I'm αη ID.”</em><br>
+    <em>“It workϟ oη my mαchiηe.”</em><br>
     <sub>— <a href="https://excuser-three.vercel.app">Excuser</a></sub>
 </p>
 <!--END_SECTION:dev-excuse-->
