@@ -25,25 +25,74 @@
 <h6 align="center">₿ Bitcoin: bc1q9vyjnvxjkk40mjqf6cgkadklfxrug5ez6kzpxx<br>⚡Lightning: middleamber84@walletofsatoshi.com</h6>
 </div><br>
 
-<!-- Fav language snippet in Go-->
+<!-- About me server in Go -->
 ```go
+package main
+
+import (
+	"encoding/json"
+	"log"
+	"net/http"
+	"time"
+)
+
+type Profile struct {
+	Name      string   `json:"name"`
+	Location  string   `json:"location"`
+	Focus     []string `json:"focus"`
+	Portfolio string   `json:"portfolio"`
+}
+
+func aboutMe(w http.ResponseWriter, _ *http.Request) {
+	me := Profile{
+		Name:      "Haji Ismael Ibrahim",
+		Location:  "Lakecity",
+		Focus:     []string{"Backend development", "Distributed systems", "Design"},
+		Portfolio: "https://halim-c4x.pages.dev",
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	if err := json.NewEncoder(w).Encode(me); err != nil {
+		log.Printf("write profile response: %v", err)
+	}
+}
+
 func main() {
- http.HandleFunc("/", func(writer http.ResponseWriter, request *http.Request) {
-  message := strings.Join([]string{"Hello", "world!"}, " ")
+	mux := http.NewServeMux()
+	mux.HandleFunc("GET /about", aboutMe)
 
-  _, err := writer.Write([]byte(message))
-  if err != nil {
-   panic(err)
-  }
- })
-
- if err := http.ListenAndServe(":8080", nil); err != nil {
-  panic(err)
- }
+	server := &http.Server{
+		Addr:              ":8080",
+		Handler:           mux,
+		ReadHeaderTimeout: 5 * time.Second,
+	}
+	log.Fatal(server.ListenAndServe())
 }
 ```
 
-<!-- Github Statistics -->
+<!-- About / Present -->
+### 💡 Present
+
+I'm **Haji Ismael Ibrahim**, a software engineer based in Lakecity. I build backend services with Go, Python, and well-tuned databases, with a focus on concurrency, socket programming, and distributed systems.
+
+- 🧑🏾‍💻 Software Engineering Apprentice at [Zone01 Kisumu](https://zone01kisumu.ke).
+- 🛠️ Building [Kamugram](https://github.com/hajisml/kamugram), a Swahili search engine and Telegram bot.
+- 📚 Learning **full-stack Java development with Spring Boot**, from REST APIs to the front end.
+- 🎨 Alongside code, I work on **brand identity and UI/UX** using Figma, GIMP, and Inkscape.
+- 🌐 Explore my work at [halim-c4x.pages.dev](https://halim-c4x.pages.dev).
+
+<!-- GitHub Statistics -->
+### 📊 GitHub Statistics
+
+<div align="center">
+    <a href="https://github.com/hajisml?tab=repositories">
+        <img src="assets/overview-light.svg#gh-light-mode-only" width="420" alt="GitHub overview: public repositories, stars, forks, and followers" />
+        <img src="assets/overview-dark.svg#gh-dark-mode-only" width="420" alt="GitHub overview: public repositories, stars, forks, and followers" />
+        <img src="assets/languages-light.svg#gh-light-mode-only" width="420" alt="Languages by code size across public, owned, non-fork repositories" />
+        <img src="assets/languages-dark.svg#gh-dark-mode-only" width="420" alt="Languages by code size across public, owned, non-fork repositories" />
+    </a>
+</div>
+
 <div align="center">
     <a href="https://git.io/streak-stats">
         <img src="https://streak-stats.demolab.com?user=hajisml&theme=github-light&background=00000000&hide_border=true&date_format=j%20M%5B%20Y%5D&mode=weekly&ring=0969DA&fire=0969DA&currStreakNum=1F2328&sideLabels=1F2328&currStreakLabel=0969DA&sideNums=1F2328&dates=59636E#gh-light-mode-only" alt="Weekly GitHub contribution streak" />
@@ -51,21 +100,102 @@ func main() {
     </a>
 </div><br>
 
+<!--START_SECTION:dev-excuse-->
+<p align="center">
+    <em>“I got curϟed becαuϟe ϟomeoηe reviewed my code.”</em><br>
+    <sub>— <a href="https://excuser-three.vercel.app">Excuser</a></sub>
+</p>
+<!--END_SECTION:dev-excuse-->
+
+<details>
+  <summary><b>⏳ View my WakaTime Statistics</b></summary>
+
+<!--START_SECTION:waka-->
+Language statistics will appear here after WakaTime is connected. Only language totals and coding time are published.
+<!--END_SECTION:waka-->
+
+</details><br>
+
+<details>
+  <summary><b>🧠 View my Skills and Knowledge</b></summary><br>
+
+<table>
+    <tr><th>Area</th><th>Experience with</th></tr>
+    <tr>
+        <td>Languages</td>
+        <td>
+            <img src="https://img.shields.io/badge/Go-007D9C?style=for-the-badge&logo=go&logoColor=white" alt="Go" />
+            <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
+            <img src="https://img.shields.io/badge/SQL-4169E1?style=for-the-badge" alt="SQL" />
+            <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
+            <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5" />
+            <img src="https://img.shields.io/badge/CSS-663399?style=for-the-badge&logo=css&logoColor=white" alt="CSS" />
+        </td>
+    </tr>
+    <tr>
+        <td>Web and APIs</td>
+        <td>
+            <img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI" />
+            <img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white" alt="Flask" />
+            <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js" />
+            <img src="https://img.shields.io/badge/Deno-000000?style=for-the-badge&logo=deno&logoColor=white" alt="Deno" />
+            <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
+            <img src="https://img.shields.io/badge/REST_APIs-0969DA?style=for-the-badge" alt="REST APIs" />
+        </td>
+    </tr>
+    <tr>
+        <td>Data and Infrastructure</td>
+        <td>
+            <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL" />
+            <img src="https://img.shields.io/badge/MongoDB-00684A?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" />
+            <img src="https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white" alt="Redis" />
+            <img src="https://img.shields.io/badge/SQLite_FTS5-003B57?style=for-the-badge&logo=sqlite&logoColor=white" alt="SQLite FTS5" />
+            <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
+            <img src="https://img.shields.io/badge/Podman-892CA0?style=for-the-badge&logo=podman&logoColor=white" alt="Podman" />
+            <img src="https://img.shields.io/badge/AWS-232F3E?style=for-the-badge" alt="AWS" />
+            <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" alt="Linux" />
+        </td>
+    </tr>
+    <tr>
+        <td>Engineering Practices</td>
+        <td>Distributed systems · Concurrency · Socket programming · CI/CD · Code review · Mentorship</td>
+    </tr>
+    <tr>
+        <td>Design</td>
+        <td>
+            <img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white" alt="Figma" />
+            <img src="https://img.shields.io/badge/GIMP-5C5543?style=for-the-badge&logo=gimp&logoColor=white" alt="GIMP" />
+            <img src="https://img.shields.io/badge/Inkscape-000000?style=for-the-badge&logo=inkscape&logoColor=white" alt="Inkscape" />
+            <br>Brand identity · UI/UX
+        </td>
+    </tr>
+    <tr>
+        <td>Currently Learning</td>
+        <td>
+            <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge" alt="Java" />
+            <img src="https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white" alt="Spring Boot" />
+            <br>Full-stack Java development, from REST APIs to the front end
+        </td>
+    </tr>
+    <tr>
+        <td>Education</td>
+        <td>Software Engineering Apprentice at <a href="https://zone01kisumu.ke">Zone01 Kisumu</a> · B.Sc. Software Development, KCA University</td>
+    </tr>
+</table>
+
+</details><br>
+
 <!-- Updates -->
 <details>
   <summary><b>🚀 Updates</b></summary><br>
     <ul>
         <li>🛠️ Working on <a href="https://github.com/hajisml/kamugram">Kamugram!</a></li>
-  <li>🧑🏾‍💻 Apprentice at <a href="https://zone01kisumu.ke">Zone01 Kisumu</a></li>
+        <li>🧑🏾‍💻 Apprentice at <a href="https://zone01kisumu.ke">Zone01 Kisumu</a></li>
         <li><a href="https://wakatime.com/@00a59a24-7f70-4add-abf2-ff361b4693fc"><img src="https://wakatime.com/badge/user/00a59a24-7f70-4add-abf2-ff361b4693fc.svg" alt="Total time coded since Nov 25 2024" /></a></li>
     </ul>
-<!--END_SECTION:Updates-->
 </details><br>
 
 <!-- Footer -->
 <div align="center">
-    <a href="https://hajiibrahim-readme-dev-48.deno.dev">
-        <img src="https://hajiibrahim-readme-dev-48.deno.dev?theme=dark&card_width=420&card_height=30&font-family=Fira+sans" alt="Dev Excuses" />
-    </a>
 <h6 align="center">- Mαrtiαηϟ VϞ Gobliηϟ -</h6>
 </div>
