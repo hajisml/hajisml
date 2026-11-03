@@ -42,8 +42,8 @@ public total-coding-time badge continues to work independently.
 
 1. Read [WakaTime's authentication documentation](https://wakatime.com/developers#authentication).
    Follow its personal OAuth-token link for scripts and README statistics.
-2. Generate a personal OAuth token that can read the Insights API (documented as
-   requiring `read_summaries`). No language-only token setting is required.
+2. Generate a personal OAuth token that can read weekly statistics (documented as
+   requiring `read_stats`). No language-only token setting is required.
    Do not assume the token itself is restricted to languages; keep it secret.
    WakaTime currently documents API keys as write-only; use an OAuth token, not
    your editor's API key.
@@ -54,8 +54,8 @@ public total-coding-time badge continues to work independently.
    does not push or trigger it. After the workflow is on the default branch,
    **Actions → Profile statistics → Run workflow** also allows a branch selection.
 
-The generator uses **only `/users/current/insights/languages/last_7_days`** for
-WakaTime, with an Authorization header and an allowlist of
+The generator uses **only `/users/current/stats/last_7_days`** for WakaTime,
+with an Authorization header and an allowlist of
 **language name + numeric duration**. It computes its own
 percentages, progress bars, and time strings instead of embedding arbitrary API
 text. The presentation follows Jandrana's collapsible statistics section.
@@ -63,11 +63,17 @@ text. The presentation follows Jandrana's collapsible statistics section.
 Only languages, durations, percentages, the seven-day period, and refresh date
 are published. Project names, repository names, paths, branches, editors,
 machines, operating systems, timezones, daily schedules, AI usage, and raw API
-responses are never written to files or logs. Other WakaTime endpoints, including
-the broad statistics and project endpoints, are refused by the HTTP client.
-The targeted endpoint and output allowlist enforce what the integration requests
-and publishes; they do not change the underlying token's permissions. Any extra
-response fields are ignored rather than copied into the README.
+responses are never written to files or logs. The standard weekly response may
+include project names and other metadata in memory; only its language names and
+numeric language durations are consumed. Extra fields are never copied into the
+README, SVGs, artifacts, or logs. The token itself is not restricted to languages.
+The HTTP client refuses other WakaTime endpoints, including project, heartbeat,
+all-time statistics, and insights endpoints.
+
+The language-specific Insights endpoint was tried during the first live run, but
+returned HTTP 402 (Payment Required). The standard weekly endpoint is the approved
+fallback; the output allowlist, rather than a paid endpoint or token setting,
+enforces the public language-only presentation.
 
 Language totals still reveal how much time you spend in particular languages;
 that is the intended public information. The existing badge also exposes total

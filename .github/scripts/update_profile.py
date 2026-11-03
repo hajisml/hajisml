@@ -29,7 +29,7 @@ WAKA_END = "<!--END_SECTION:waka-->"
 EXCUSE_START = "<!--START_SECTION:dev-excuse-->"
 EXCUSE_END = "<!--END_SECTION:dev-excuse-->"
 MARTIAN_LETTERS = str.maketrans({"a": "α", "n": "η", "s": "ϟ", "A": "Δ", "N": "Ͷ", "S": "Ϟ"})
-WAKATIME_URL = "https://api.wakatime.com/api/v1/users/current/insights/languages/last_7_days"
+WAKATIME_URL = "https://api.wakatime.com/api/v1/users/current/stats/last_7_days"
 EXCUSE_URL = "https://excuser-three.vercel.app/v1/excuse/developers/1"
 THEMES = {
     "light": {
@@ -69,7 +69,7 @@ def get_json(url, token=""):
     }:
         raise StatsError("Refusing a request outside the supported HTTPS APIs.")
     if parsed.netloc == "api.wakatime.com" and url != WAKATIME_URL:
-        raise StatsError("Only the language-insights WakaTime endpoint is allowed.")
+        raise StatsError("Only the weekly-statistics WakaTime endpoint is allowed.")
     if parsed.netloc == "excuser-three.vercel.app" and (url != EXCUSE_URL or token):
         raise StatsError("Excuser requests must use the public developers endpoint without credentials.")
     headers = {"Accept": "application/json", "User-Agent": "hajisml-profile-stats"}

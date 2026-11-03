@@ -296,12 +296,12 @@ class NetworkTests(unittest.TestCase):
         self.assertNotIn("SECRET", str(raised.exception))
 
     @patch.object(profile, "build_opener")
-    def test_broad_and_private_wakatime_endpoints_are_refused_before_any_request(self, build_opener):
+    def test_wakatime_requests_are_limited_to_standard_weekly_stats(self, build_opener):
         self.assertEqual(
             profile.WAKATIME_URL,
-            "https://api.wakatime.com/api/v1/users/current/insights/languages/last_7_days",
+            "https://api.wakatime.com/api/v1/users/current/stats/last_7_days",
         )
-        for path in ["stats/last_7_days", "projects", "heartbeats", "insights/projects/last_7_days"]:
+        for path in ["stats/all_time", "projects", "heartbeats", "insights/projects/last_7_days", "insights/languages/last_7_days"]:
             with self.subTest(path=path), self.assertRaises(profile.StatsError):
                 profile.get_json(f"https://api.wakatime.com/api/v1/users/current/{path}", "SECRET_TOKEN")
         build_opener.assert_not_called()
@@ -463,6 +463,26 @@ class UpdateTests(unittest.TestCase):
             profile.replace_excuse(profile.replace_waka(output, "previous statistics"), "previous excuse"),
             self.original,
         )
+
+    @patch.object(profile, "get_json", return_value={"data": {
+        "languages": [{"name": "Go", "total_seconds": 3600}],
+        "projects": [{"name": "SECRET_PROJECT", "repository": "SECRET_REPOSITORY"}],
+        "editors": [{"name": "SECRET_EDITOR"}],
+        "machines": [{"name": "SECRET_MACHINE"}],
+        "timezone": "SECRET_TIMEZONE",
+    }})
+    @patch.object(profile, "github_stats", return_value=(OVERVIEW, Counter(Go=100)))
+    def test_weekly_stats_metadata_is_never_persisted_or_logged(self, github_stats, get_json):
+        os.environ["WAKATIME_TOKEN"] = "SECRET_TOKEN"
+        self.assertFalse(profile.update(self.root, today=TODAY))
+        output = self.readme.read_text(encoding="utf-8")
+        self.assertIn("Go", output)
+        self.assertIn("1 hr 0 mins", output)
+        for path in self.root.rglob("*"):
+            if path.is_file():
+                self.assertNotIn("SECRET", path.read_text(encoding="utf-8"))
+        self.assertNotIn("SECRET", self.stdout.getvalue() + self.stderr.getvalue())
+        get_json.assert_called_once_with(profile.WAKATIME_URL, "SECRET_TOKEN")
 
     def test_missing_excuse_markers_fail_without_overwriting_the_readme(self):
         original = "An unrelated README without generated sections.\n"
