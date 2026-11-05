@@ -8,11 +8,12 @@ local package installation is required.
 
 ## Theme handling
 
-Each themed image has a `#gh-light-mode-only` or `#gh-dark-mode-only` fragment.
-GitHub selects the variant using the viewer's GitHub theme, including when it
-differs from the operating system's theme. No custom README CSS or JavaScript is
-required. Both image variants may appear in Markdown viewers that do not support
-GitHub's theme fragments.
+Each themed image uses one HTML `<picture>` with a dark-mode `<source>` and one
+light-mode fallback `<img>`. This prevents the duplicate light/dark images seen
+in GitHub's rendered branch README. The media query follows the browser's
+`prefers-color-scheme` setting; if the GitHub theme is manually set differently
+from the browser/OS preference, colors may not match that GitHub setting.
+No custom README CSS or JavaScript is required.
 
 The typing quote, its animation settings, and the weekly streak mode are
 preserved. Text, dates, numbers, and accents have explicit colors for each theme.
@@ -178,6 +179,6 @@ are never persisted; authenticated redirects are refused. API timeouts and
 server retries are bounded. Unauthenticated GitHub calls are rate limited, so
 avoid repeated local refreshes.
 
-Before merging, review the `dev` README on GitHub in both light and dark themes,
-including when GitHub's theme differs from your system setting, and at a narrow
-mobile width, including the cached Dev Excuses quote.
+Before merging, review the `dev` README on GitHub in both light and dark browser
+preferences, including when GitHub's theme differs from your system setting,
+and at a narrow mobile width, including the cached Dev Excuses quote.

@@ -504,10 +504,24 @@ class ImageParser(HTMLParser):
     def __init__(self):
         super().__init__()
         self.images = []
+        self.pictures = []
+        self.current_picture = None
 
     def handle_starttag(self, tag, attrs):
+        if tag == "picture":
+            self.current_picture = {"sources": [], "images": []}
+            self.pictures.append(self.current_picture)
+        elif tag == "source" and self.current_picture is not None:
+            self.current_picture["sources"].append(dict(attrs))
         if tag == "img":
-            self.images.append(dict(attrs))
+            image = dict(attrs)
+            self.images.append(image)
+            if self.current_picture is not None:
+                self.current_picture["images"].append(image)
+
+    def handle_endtag(self, tag):
+        if tag == "picture":
+            self.current_picture = None
 
 
 class RepositoryTests(unittest.TestCase):
@@ -516,6 +530,7 @@ class RepositoryTests(unittest.TestCase):
         parser = ImageParser()
         parser.feed(self.readme)
         self.images = parser.images
+        self.pictures = parser.pictures
 
     def test_all_image_paths_exist_and_have_alt_text(self):
         for image in self.images:
@@ -526,12 +541,25 @@ class RepositoryTests(unittest.TestCase):
                 if not parsed.scheme:
                     self.assertTrue((profile.ROOT / parsed.path).is_file())
 
-    def test_dynamic_images_have_exactly_one_variant_per_theme(self):
-        for host in ["readme-typing-svg.demolab.com"]:
-            images = [urlsplit(image["src"]) for image in self.images if urlsplit(image["src"]).netloc == host]
-            self.assertEqual(len(images), 2)
-            self.assertEqual({image.fragment for image in images}, {"gh-light-mode-only", "gh-dark-mode-only"})
-            self.assertNotEqual(images[0].query, images[1].query)
+    def test_theme_pictures_have_one_fallback_and_one_dark_source(self):
+        self.assertEqual(len(self.pictures), 4)
+        self.assertNotIn("#gh-light-mode-only", self.readme)
+        self.assertNotIn("#gh-dark-mode-only", self.readme)
+        for picture in self.pictures:
+            with self.subTest(fallback=picture["images"]):
+                self.assertEqual(len(picture["images"]), 1)
+                self.assertEqual(len(picture["sources"]), 1)
+                source = picture["sources"][0]
+                self.assertEqual(source["media"], "(prefers-color-scheme: dark)")
+                dark = urlsplit(source["srcset"])
+                light = urlsplit(picture["images"][0]["src"])
+                self.assertFalse(dark.fragment or light.fragment)
+                if light.scheme:
+                    self.assertEqual(dark.netloc, light.netloc)
+                    self.assertNotEqual(parse_qs(dark.query)["color"], parse_qs(light.query)["color"])
+                else:
+                    self.assertEqual(dark.path, light.path.replace("-light.svg", "-dark.svg"))
+                    self.assertTrue((profile.ROOT / dark.path).is_file())
 
     def test_quote_is_centered_and_signature_remains_in_footer(self):
         before, remainder = self.readme.split(profile.EXCUSE_START)
@@ -568,8 +596,10 @@ class RepositoryTests(unittest.TestCase):
         workflow = (profile.ROOT / ".github/workflows/profile-stats.yml").read_text(encoding="utf-8")
         self.assertEqual(workflow.count("user=hajisml&mode=weekly&"), 2)
         self.assertEqual(workflow.count("date_format=j%20M%5B%20Y%5D"), 2)
-        for image in self.images:
-            parsed = urlsplit(image["src"])
+        urls = [image["src"] for image in self.images]
+        urls.extend(source["srcset"] for picture in self.pictures for source in picture["sources"])
+        for url in urls:
+            parsed = urlsplit(url)
             query = parse_qs(parsed.query)
             if parsed.netloc == "readme-typing-svg.demolab.com":
                 self.assertEqual(query["font"], ["Fira Sans"])
@@ -577,18 +607,14 @@ class RepositoryTests(unittest.TestCase):
                 self.assertIn("lil W", query["lines"][0])
 
     def test_typing_and_streak_text_has_aa_contrast(self):
-        for image in self.images:
-            parsed = urlsplit(image["src"])
-            fields = []
-            if parsed.netloc == "readme-typing-svg.demolab.com":
-                fields = ["color"]
-            if not fields:
-                continue
-            theme = "light" if parsed.fragment == "gh-light-mode-only" else "dark"
-            query = parse_qs(parsed.query)
-            for field in fields:
-                with self.subTest(host=parsed.netloc, theme=theme, field=field):
-                    self.assertGreaterEqual(contrast("#" + query[field][0], profile.THEMES[theme]["bg"]), 4.5)
+        for picture in self.pictures:
+            for theme, url in (("light", picture["images"][0]["src"]),
+                               ("dark", picture["sources"][0]["srcset"])):
+                parsed = urlsplit(url)
+                if parsed.netloc == "readme-typing-svg.demolab.com":
+                    with self.subTest(theme=theme):
+                        color = parse_qs(parsed.query)["color"][0]
+                        self.assertGreaterEqual(contrast("#" + color, profile.THEMES[theme]["bg"]), 4.5)
         for theme in profile.THEMES:
             root = ET.parse(profile.ROOT / "assets" / f"streak-{theme}.svg").getroot()
             texts = root.findall(".//{http://www.w3.org/2000/svg}text")
@@ -601,8 +627,10 @@ class RepositoryTests(unittest.TestCase):
 
     def test_streaks_are_repository_hosted_and_valid_svg(self):
         images = [urlsplit(image["src"]) for image in self.images if image["src"].startswith("assets/streak-")]
-        self.assertEqual(len(images), 2)
-        self.assertEqual({image.fragment for image in images}, {"gh-light-mode-only", "gh-dark-mode-only"})
+        self.assertEqual(len(images), 1)
+        self.assertEqual(images[0].path, "assets/streak-light.svg")
+        self.assertEqual([source["srcset"] for picture in self.pictures for source in picture["sources"]
+                          if source["srcset"].startswith("assets/streak-")], ["assets/streak-dark.svg"])
         self.assertNotIn("streak-stats.demolab.com?", self.readme)
         for theme in profile.THEMES:
             content = (profile.ROOT / "assets" / f"streak-{theme}.svg").read_text(encoding="utf-8")

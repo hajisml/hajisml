@@ -6,8 +6,10 @@
 <!-- Typing svg presentation-->
 <div align="center">
     <a href="https://hajisml.github.io">
-        <img src="https://readme-typing-svg.demolab.com?font=Fira+Sans&size=22&duration=4000&pause=1000&color=1F2328&center=true&vCenter=true&width=410&lines=We+%CE%94re+%CD%B6ot+%CD%B2he+%CF%9E%CE%B1%CF%BBe%2C+I'%CF%BB+%CE%94+%CF%BB%CE%B1rti%CE%B1%CE%B7;-+lil+W%CE%B1y%CE%B7e#gh-light-mode-only" alt="We are not the same, I'm a Martian — Lil Wayne" />
-        <img src="https://readme-typing-svg.demolab.com?font=Fira+Sans&size=22&duration=4000&pause=1000&color=F0F6FC&center=true&vCenter=true&width=410&lines=We+%CE%94re+%CD%B6ot+%CD%B2he+%CF%9E%CE%B1%CF%BBe%2C+I'%CF%BB+%CE%94+%CF%BB%CE%B1rti%CE%B1%CE%B7;-+lil+W%CE%B1y%CE%B7e#gh-dark-mode-only" alt="We are not the same, I'm a Martian — Lil Wayne" />
+        <picture>
+            <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Fira+Sans&size=22&duration=4000&pause=1000&color=F0F6FC&center=true&vCenter=true&width=410&lines=We+%CE%94re+%CD%B6ot+%CD%B2he+%CF%9E%CE%B1%CF%BBe%2C+I'%CF%BB+%CE%94+%CF%BB%CE%B1rti%CE%B1%CE%B7;-+lil+W%CE%B1y%CE%B7e" />
+            <img src="https://readme-typing-svg.demolab.com?font=Fira+Sans&size=22&duration=4000&pause=1000&color=1F2328&center=true&vCenter=true&width=410&lines=We+%CE%94re+%CD%B6ot+%CD%B2he+%CF%9E%CE%B1%CF%BBe%2C+I'%CF%BB+%CE%94+%CF%BB%CE%B1rti%CE%B1%CE%B7;-+lil+W%CE%B1y%CE%B7e" alt="We are not the same, I'm a Martian — Lil Wayne" />
+        </picture>
     </a>
 </div>
 <!-- Socials-->
@@ -86,17 +88,23 @@ I'm **Haji Ismael Ibrahim**, a software engineer based in Lakecity. I build back
 
 <div align="center">
     <a href="https://github.com/hajisml?tab=repositories">
-        <img src="assets/overview-light.svg#gh-light-mode-only" width="420" alt="GitHub overview: public repositories, stars, forks, and followers" />
-        <img src="assets/overview-dark.svg#gh-dark-mode-only" width="420" alt="GitHub overview: public repositories, stars, forks, and followers" />
-        <img src="assets/languages-light.svg#gh-light-mode-only" width="420" alt="Languages by code size across public, owned, non-fork repositories" />
-        <img src="assets/languages-dark.svg#gh-dark-mode-only" width="420" alt="Languages by code size across public, owned, non-fork repositories" />
+        <picture>
+            <source media="(prefers-color-scheme: dark)" srcset="assets/overview-dark.svg" />
+            <img src="assets/overview-light.svg" width="420" alt="GitHub overview: public repositories, stars, forks, and followers" />
+        </picture>
+        <picture>
+            <source media="(prefers-color-scheme: dark)" srcset="assets/languages-dark.svg" />
+            <img src="assets/languages-light.svg" width="420" alt="Languages by code size across public, owned, non-fork repositories" />
+        </picture>
     </a>
 </div>
 
 <div align="center">
     <a href="https://git.io/streak-stats">
-        <img src="assets/streak-light.svg#gh-light-mode-only" alt="Weekly GitHub contribution streak" />
-        <img src="assets/streak-dark.svg#gh-dark-mode-only" alt="Weekly GitHub contribution streak" />
+        <picture>
+            <source media="(prefers-color-scheme: dark)" srcset="assets/streak-dark.svg" />
+            <img src="assets/streak-light.svg" alt="Weekly GitHub contribution streak" />
+        </picture>
     </a>
 </div><br>
 
