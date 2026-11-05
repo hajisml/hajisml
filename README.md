@@ -110,7 +110,7 @@ I'm **Haji Ismael Ibrahim**, a software engineer based in Lakecity. I build back
 
 <!--START_SECTION:dev-excuse-->
 <p align="center">
-    <em>“It workϟ oη my mαchiηe.”</em><br>
+    <em>“Wheη ϟomeoηe αϟked me αbout my blood group, I told him thαt I'm α code blooded perϟoη.”</em><br>
     <sub>— <a href="https://excuser-three.vercel.app">Excuser</a></sub>
 </p>
 <!--END_SECTION:dev-excuse-->
@@ -130,7 +130,7 @@ PHP                      3 mins            █░░░░░░░░░░░�
 Bash                     2 mins            ░░░░░░░░░░░░░░░░░░░░   2.29 %
 ```
 
-Last 7 days · Updated 2026-11-03 UTC · Source: [WakaTime](https://wakatime.com/@00a59a24-7f70-4add-abf2-ff361b4693fc)
+Last 7 days · Updated 2026-11-05 UTC · Source: [WakaTime](https://wakatime.com/@00a59a24-7f70-4add-abf2-ff361b4693fc)
 <!--END_SECTION:waka-->
 
 </details><br>
