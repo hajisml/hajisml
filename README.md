@@ -110,7 +110,7 @@ I'm **Haji Ismael Ibrahim**, a software engineer based in Lakecity. I build back
 
 <!--START_SECTION:dev-excuse-->
 <p align="center">
-    <em>“HR αϟked me why you αre lαte, I told her thαt I'm αη ID.”</em><br>
+    <em>“The coffee mαchiηe ϟtopped workiηg todαy!”</em><br>
     <sub>— <a href="https://excuser-three.vercel.app">Excuser</a></sub>
 </p>
 <!--END_SECTION:dev-excuse-->
@@ -126,7 +126,7 @@ Programming Languages:
 No language activity tracked in the last 7 days.
 ```
 
-Last 7 days · Updated 2026-11-07 UTC · Source: [WakaTime](https://wakatime.com/@00a59a24-7f70-4add-abf2-ff361b4693fc)
+Last 7 days · Updated 2026-11-08 UTC · Source: [WakaTime](https://wakatime.com/@00a59a24-7f70-4add-abf2-ff361b4693fc)
 <!--END_SECTION:waka-->
 
 </details><br>
