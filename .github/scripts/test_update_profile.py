@@ -646,7 +646,7 @@ class RepositoryTests(unittest.TestCase):
         for content in ["bc1q9vyjnvxjkk40mjqf6cgkadklfxrug5ez6kzpxx", "middleamber84@walletofsatoshi.com",
                         "server.ListenAndServe()", "github.com/hajisml/kamugram", "zone01kisumu.ke",
                         "Figma", "GIMP", "Inkscape", "Brand identity", "UI/UX", "Spring Boot",
-                        "halim-c4x.pages.dev", "wakatime.com/badge/user/00a59a24-7f70-4add-abf2-ff361b4693fc.svg"]:
+                        "halim.is-a.dev", "wakatime.com/badge/user/00a59a24-7f70-4add-abf2-ff361b4693fc.svg"]:
             with self.subTest(content=content):
                 self.assertIn(content, self.readme)
         self.assertNotIn("Photoshop", self.readme)
