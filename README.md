@@ -35,6 +35,7 @@ import (
 	"encoding/json"
 	"log/slog"
 	"net/http"
+	"os"
 	"time"
 )
 
@@ -55,7 +56,7 @@ func aboutMe(w http.ResponseWriter, _ *http.Request) {
 
 	w.Header().Set("Content-Type", "application/json")
 	if err := json.NewEncoder(w).Encode(me); err != nil {
-		log.Printf("write profile response: %v", err)
+		slog.Error("write profile response", "err", err)
 	}
 }
 
