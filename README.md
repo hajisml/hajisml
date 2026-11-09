@@ -69,9 +69,9 @@ func main() {
 		ReadHeaderTimeout: 5 * time.Second,
 	}
 	if err := server.ListenAndServe(); err != nil {
-	slog.Error("server", "err", err)
-	os.Exit(1)
-}
+		slog.Error("server", "err", err)
+		os.Exit(1)
+	}
 }
 ```
 
