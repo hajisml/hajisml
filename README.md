@@ -113,7 +113,7 @@ I'm **Haji Ismael Ibrahim**, a software engineer based in Lakecity. I build back
 
 <!--START_SECTION:dev-excuse-->
 <p align="center">
-    <em>“Wheη ϟomeoηe αϟked me αbout my blood group, I told him thαt I'm α code blooded perϟoη.”</em><br>
+    <em>“The coffee mαchiηe ϟtopped workiηg todαy!”</em><br>
     <sub>— <a href="https://excuser-three.vercel.app">Excuser</a></sub>
 </p>
 <!--END_SECTION:dev-excuse-->
