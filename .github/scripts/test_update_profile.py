@@ -95,7 +95,7 @@ class MarkerTests(unittest.TestCase):
 
     def test_invalid_markers_fail_closed(self):
         for text in ["no markers", profile.WAKA_START, profile.WAKA_END + profile.WAKA_START,
-                     profile.WAKA_START * 2 + profile.WAKA_END]:
+                      profile.WAKA_START * 2 + profile.WAKA_END]:
             with self.subTest(text=text), self.assertRaises(profile.StatsError):
                 profile.replace_waka(text, "new")
 
@@ -106,7 +106,7 @@ class MarkerTests(unittest.TestCase):
 
     def test_invalid_excuse_markers_fail_closed(self):
         for text in ["no markers", profile.EXCUSE_START, profile.EXCUSE_END + profile.EXCUSE_START,
-                     profile.EXCUSE_START * 2 + profile.EXCUSE_END]:
+                      profile.EXCUSE_START * 2 + profile.EXCUSE_END]:
             with self.subTest(text=text), self.assertRaises(profile.StatsError):
                 profile.replace_excuse(text, "new")
 
@@ -659,7 +659,7 @@ class RepositoryTests(unittest.TestCase):
                         '`json:"focus"`', '`json:"portfolio"`', '"encoding/json"', '"net/http"',
                         'mux.HandleFunc("GET /about", aboutMe)', 'w.Header().Set("Content-Type", "application/json")',
                         "json.NewEncoder(w).Encode(me)", "ReadHeaderTimeout:", "5 * time.Second",
-                        "server.ListenAndServe()", "log.Printf(", "Lakecity"]:
+                        "server.ListenAndServe()", "slog.Error", '"log/slog"', "os.Exit(1)", "Lakecity"]:
             with self.subTest(content=content):
                 self.assertIn(content, snippet)
         self.assertNotIn("Hello", snippet)
