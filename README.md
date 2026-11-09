@@ -84,7 +84,7 @@ I'm **Haji Ismael Ibrahim**, a software engineer based in Lakecity. I build back
 - 🛠️ Building [Kamugram](https://github.com/hajisml/kamugram), a Swahili search engine and Telegram bot.
 - 📚 Learning **full-stack Java development with Spring Boot**, from REST APIs to the front end.
 - 🎨 Alongside code, I work on **brand identity and UI/UX** using Figma, GIMP, and Inkscape.
-- 🌐 Explore my work at [halim-c4x.pages.dev](https://halim-c4x.pages.dev).
+- 🌐 Explore my work at [halim.is-a.dev](https://halim.is-a.dev).
 
 <!-- GitHub Statistics -->
 ### 📊 GitHub Statistics
