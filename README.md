@@ -33,7 +33,7 @@ package main
 
 import (
 	"encoding/json"
-	"log"
+	"log/slog"
 	"net/http"
 	"time"
 )
@@ -50,7 +50,7 @@ func aboutMe(w http.ResponseWriter, _ *http.Request) {
 		Name:      "Haji Ismael Ibrahim",
 		Location:  "Lakecity",
 		Focus:     []string{"Backend development", "Distributed systems", "Design"},
-		Portfolio: "https://halim-c4x.pages.dev",
+		Portfolio: "https://halim.is-a.dev",
 	}
 
 	w.Header().Set("Content-Type", "application/json")
@@ -68,7 +68,10 @@ func main() {
 		Handler:           mux,
 		ReadHeaderTimeout: 5 * time.Second,
 	}
-	log.Fatal(server.ListenAndServe())
+	if err := server.ListenAndServe(); err != nil {
+	slog.Error("server", "err", err)
+	os.Exit(1)
+}
 }
 ```
 
