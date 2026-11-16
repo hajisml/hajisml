@@ -114,7 +114,7 @@ I'm **Haji Ismael Ibrahim**, a software engineer based in Lakecity. I build back
 
 <!--START_SECTION:dev-excuse-->
 <p align="center">
-    <em>“There iϟ α bug iη thiϟ code, but I doη't kηow which bug I'm tαlkiηg αbout.”</em><br>
+    <em>“My frieηd told me thαt there'ϟ ηo plαce like 127.0.0.1 ϟo I weηt to ϟee if there exiϟtϟ ϟuch plαce.”</em><br>
     <sub>— <a href="https://excuser-three.vercel.app">Excuser</a></sub>
 </p>
 <!--END_SECTION:dev-excuse-->
@@ -127,13 +127,13 @@ I'm **Haji Ismael Ibrahim**, a software engineer based in Lakecity. I build back
 
 ```text
 Programming Languages:
-Other                    1 hr 15 mins      █████████░░░░░░░░░░░  42.90 %
-Bash                     1 hr 0 mins       ███████░░░░░░░░░░░░░  34.19 %
-Java                     28 mins           ███░░░░░░░░░░░░░░░░░  15.91 %
-Text                     12 mins           █░░░░░░░░░░░░░░░░░░░   6.99 %
+Other                    1 hr 15 mins      ██████████░░░░░░░░░░  51.58 %
+Bash                     30 mins           ████░░░░░░░░░░░░░░░░  20.88 %
+Java                     28 mins           ████░░░░░░░░░░░░░░░░  19.13 %
+Text                     12 mins           ██░░░░░░░░░░░░░░░░░░   8.41 %
 ```
 
-Last 7 days · Updated 2026-11-15 UTC · Source: [WakaTime](https://wakatime.com/@00a59a24-7f70-4add-abf2-ff361b4693fc)
+Last 7 days · Updated 2026-11-16 UTC · Source: [WakaTime](https://wakatime.com/@00a59a24-7f70-4add-abf2-ff361b4693fc)
 <!--END_SECTION:waka-->
 
 </details><br>
