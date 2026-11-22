@@ -114,7 +114,7 @@ I'm **Haji Ismael Ibrahim**, a software engineer based in Lakecity. I build back
 
 <!--START_SECTION:dev-excuse-->
 <p align="center">
-    <em>“It'ϟ ηot α bug, it'ϟ α feαture.”</em><br>
+    <em>“The coffee mαchiηe ϟtopped workiηg todαy!”</em><br>
     <sub>— <a href="https://excuser-three.vercel.app">Excuser</a></sub>
 </p>
 <!--END_SECTION:dev-excuse-->
@@ -127,13 +127,12 @@ I'm **Haji Ismael Ibrahim**, a software engineer based in Lakecity. I build back
 
 ```text
 Programming Languages:
-Other                    6 hrs 45 mins     ███████████████░░░░░  75.24 %
-Java                     2 hrs 4 mins      █████░░░░░░░░░░░░░░░  23.17 %
-Bash                     6 mins            ░░░░░░░░░░░░░░░░░░░░   1.14 %
-Markdown                 2 mins            ░░░░░░░░░░░░░░░░░░░░   0.45 %
+Other                    5 hrs 11 mins     ██████████████░░░░░░  67.74 %
+Java                     2 hrs 25 mins     ██████░░░░░░░░░░░░░░  31.72 %
+Markdown                 2 mins            ░░░░░░░░░░░░░░░░░░░░   0.53 %
 ```
 
-Last 7 days · Updated 2026-11-21 UTC · Source: [WakaTime](https://wakatime.com/@00a59a24-7f70-4add-abf2-ff361b4693fc)
+Last 7 days · Updated 2026-11-22 UTC · Source: [WakaTime](https://wakatime.com/@00a59a24-7f70-4add-abf2-ff361b4693fc)
 <!--END_SECTION:waka-->
 
 </details><br>
